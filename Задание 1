@@ -1,0 +1,50 @@
+<?php
+
+function shifr($message) 
+{
+    $chars = str_split($message); 
+    $result = []; 
+    foreach ($chars as $char) 
+    {
+        if (ctype_alpha($char)) 
+        {
+            $base = ord('a'); 
+            $shifrA = chr((ord($char) - $base + 3) % 26 + $base);
+            $result[] = $shifrA; 
+        }
+        else 
+        {
+            $result[] = $char;
+        }
+    }
+    return implode('', $result);
+}
+
+function deshifr($message) 
+{
+    $chars = str_split($message);
+    $result = [];
+    foreach ($chars as $char) 
+    {
+        if (ctype_alpha($char)) 
+        {
+            $base = ord('a'); 
+            $deshifrA = chr((ord($char) - $base - 3 + 26) % 26 + $base); 
+            $result[] = $deshifrA; 
+        }
+        else 
+        {
+            $result[] = $char;
+        }
+    }
+    return implode('', $result);
+}
+
+$original = "ia ne znaiu kak sdelat s rus bukvami";
+$shifr = shifr($original);
+$deshifr = deshifr($shifr);
+
+echo "Оригинальный текст: $original\n";
+echo "Шифрованный: $shifr\n";
+echo "Расшифрованный: $deshifr\n";
+?>
