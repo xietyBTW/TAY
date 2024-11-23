@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О пользователе</title>
+</head>
+<body>
+    <h1>Информация о пользователе</h1>
+    <p>Добро пожаловать, <?= htmlspecialchars($username) ?>!</p>
+    <h2>Данные из $_SERVER:</h2>
+    <ul>
+        <?php echo "IP-адрес: " . $_SERVER['REMOTE_ADDR'] . "<br>";
+        echo "Порт клиента: " . $_SERVER['REMOTE_PORT'] . "<br>";
+        echo "Пользователь: " . $_SERVER['HTTP_USER_AGENT'] . "<br>";
+        echo "<h2>Дополнительна инфорамци о вас!</h2>";
+        echo "<pre>";
+        print_r(getenv());
+        echo "</pre>";; ?>
+    </ul>
+    <a href="account.php">Список пользователей</a> | <a href="index.php">Выйти</a>
+</body>
+</html>
